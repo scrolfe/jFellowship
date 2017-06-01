@@ -39,9 +39,10 @@ makeMiddleEarth();
 function makeHobbits(){
   // display an `unordered list` of hobbits in the shire
   $('article').eq(0).append('<ul></ul>')
-  for (var i = 0; i < hobbits.length; i++)
+  for (var i = 0; i < hobbits.length; i++) {
     $('ul').append('<li></li>')
-    $('li').eq(i).append(hobbits).eq(i)
+    $('li').eq(i).text(hobbits[i])
+  }
 
   // (which is the second article tag on the page)
   // give each hobbit a class of `hobbit`
@@ -51,8 +52,11 @@ makeHobbits();
 
 function keepItSecretKeepItSafe(){
   // create a div with an id of `'the-ring'`
+  $('body').append('<div>')
   // give the div a class of `'magic-imbued-jewelry'`
+  $('div').attr('class', 'magic-imbued-jewelry')
   // add the ring as a child of `Frodo`
+  // $('frodo').append('.magic-imbued-jewelry')
 }
 
 keepItSecretKeepItSafe();
