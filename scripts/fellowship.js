@@ -35,42 +35,46 @@ function makeMiddleEarth() {
   $('body').append($('#middle-earth'))
 }
 makeMiddleEarth();
-
+// display an `unordered list` of hobbits in the shire (which is the second article tag on the page)
+// & give each hobbit a class of `hobbit`
 function makeHobbits(){
-  // display an `unordered list` of hobbits in the shire
-  $('article').eq(0).append('<ul></ul>')
+  var hobbitsUL = $('article').eq(0).append('<ul></ul>')
   for (var i = 0; i < hobbits.length; i++) {
     $('ul').append('<li></li>')
-    $('li').eq(i).text(hobbits[i])
+    $('li').eq(i).text(hobbits[i]).attr('class', 'hobbit')
   }
-
-  // (which is the second article tag on the page)
-  // give each hobbit a class of `hobbit`
 }
-
 makeHobbits();
 
 function keepItSecretKeepItSafe(){
   // create a div with an id of `'the-ring'`
   $('body').append('<div>')
   // give the div a class of `'magic-imbued-jewelry'`
-  $('div').attr('class', 'magic-imbued-jewelry')
+  $('div').eq(1).attr('class', 'magic-imbued-jewelry')
   // add the ring as a child of `Frodo`
-  // $('frodo').append('.magic-imbued-jewelry')
+  $('.hobbit').eq(0).append($('.magic-imbued-jewelry'))
 }
 
 keepItSecretKeepItSafe();
 
 function makeBuddies(){
   // create an `aside` tag
-  // attach an `unordered list` of the `'buddies'` in the aside
   // insert your aside as a child element of `rivendell`
+  $('article').eq(1).append('<aside>')
+  // attach an `unordered list` of the `'buddies'` in the aside
+  $('aside').append('<ul>')
+  for (var i = 0; i < buddies.length; i++) {
+    $('article aside ul').eq(i).append('<li>')
+    var articleAsideUl = $('article aside ul')
+    $('li').eq(i).text(buddies[i])
+  }
 }
 
 makeBuddies();
 
 function beautifulStranger(){
   // change the `'Strider'` text to `'Aragorn'`
+
 }
 
 beautifulStranger();
